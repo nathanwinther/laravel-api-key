@@ -134,11 +134,9 @@ Requests that do not pass authorization will receive an HTTP 401 Status Code wit
 
 ```json
 {
-    "errors": [
-        {
-            "message": "Unauthorized"
-        }
-    ]
+  "success": false,
+  "message": "Sorry, you're not authorized to do that",
+  "errors": {}
 }
 ```
 
