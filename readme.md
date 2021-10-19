@@ -24,8 +24,6 @@ Add to `composer.json`
 },
 ```
 
-Run `composer require nathanwinther/laravel-api-key`.
-
 In your `config/app.php` file, add the Laravel API Key service provider to the end of the `providers` array.
 
 ```php
