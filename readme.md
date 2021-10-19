@@ -1,7 +1,7 @@
 Laravel API Key Auth
 ========
 
-Forked from `ejarnutowski/laravel-api-key` version 1.0.4
+Forked from [ejarnutowski/laravel-api-key](https://github.com/ejarnutowski/laravel-api-key) version 1.0.4
 
 ## Installation
 
