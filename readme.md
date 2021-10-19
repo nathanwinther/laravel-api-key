@@ -7,6 +7,23 @@ Added support for `apikey` querystring auth.
 
 ## Installation
 
+Add to `composer.json`
+
+```
+"repositories": [
+    {
+        "type": "vcs",
+        "url": "https://github.com/nathanwinther/laravel-api-key"
+    }
+],
+```
+
+```
+"require": {
+    "nathanwinther/laravel-api-key": "^1.0"
+},
+```
+
 Run `composer require nathanwinther/laravel-api-key`.
 
 In your `config/app.php` file, add the Laravel API Key service provider to the end of the `providers` array.
