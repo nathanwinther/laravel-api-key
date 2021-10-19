@@ -116,11 +116,17 @@ class UserController extends Controller
 }
 ```
 
-### Authorizing Requests
+### Authorizing Requests With Header
 
 In order to pass the `auth.apikey` middleware, requests must include an `X-Authorization` header as part of the request, with its value being an active API key.
 
     X-Authorization: KuKMQbgZPv0PRC6GqCMlDQ7fgdamsVY75FrQvHfoIbw4gBaG5UX0wfk6dugKxrtW
+
+### Authorizing Requests With Querystring
+
+In order to pass the `auth.apikey` middleware, requests must include an `apikey` querystring parameter as part of the request, with its value being an active API key.
+
+    ?apikey=KuKMQbgZPv0PRC6GqCMlDQ7fgdamsVY75FrQvHfoIbw4gBaG5UX0wfk6dugKxrtW
 
 ## Unauthorized Requests
 
