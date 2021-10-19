@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 class AuthorizeApiKey
 {
     const AUTH_HEADER = 'X-Authorization';
+    const QUERYSTRING_KEY = 'apikey';
 
     /**
      * Handle the incoming request
@@ -20,18 +21,24 @@ class AuthorizeApiKey
      */
     public function handle(Request $request, Closure $next)
     {
-        $header = $request->header(self::AUTH_HEADER);
-        $apiKey = ApiKey::getByKey($header);
+        $keys = [
+          $request->header(self::AUTH_HEADER), // Default
+          $request->get(self::QUERYSTRING_KEY), // Fallback
+        ];
 
-        if ($apiKey instanceof ApiKey) {
-            $this->logAccessEvent($request, $apiKey);
-            return $next($request);
+        foreach ($keys as $key) {
+          $apiKey = ApiKey::getByKey($key);
+
+          if ($apiKey instanceof ApiKey) {
+              $this->logAccessEvent($request, $apiKey);
+              return $next($request);
+          }
         }
 
-        return response([
-            'errors' => [[
-                'message' => 'Unauthorized'
-            ]]
+        return response()->json([
+            'success' => false,
+            'message' => "Sorry, you're not authorized to do that",
+            'errors' => (object)[],
         ], 401);
     }
 
