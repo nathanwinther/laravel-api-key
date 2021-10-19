@@ -3,6 +3,8 @@ Laravel API Key Auth
 
 Forked from [ejarnutowski/laravel-api-key](https://github.com/ejarnutowski/laravel-api-key) version 1.0.4
 
+Added support for `apikey` querystring auth.
+
 ## Installation
 
 Run `composer require nathanwinther/laravel-api-key`.
